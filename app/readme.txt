@@ -1,0 +1,1 @@
+docker compose exec api alembic revision --autogenerate -m "update users table"
