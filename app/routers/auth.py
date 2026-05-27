@@ -66,7 +66,10 @@ def token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
         data={"sub": user.phone},
         expires_delta=timedelta(minutes=settings.access_token_expire_minutes),
     )
-    return {"access_token": access_token, "token_type": "bearer"}
+    refresh = create_refresh_token(
+        data={"sub": user.phone},
+    )
+    return {"access_token": access_token, "refresh_token": refresh, "token_type": "bearer"}
 
 
 @router.post("/login", response_model=TokenResponse)

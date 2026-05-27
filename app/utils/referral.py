@@ -128,8 +128,7 @@ def to_response(product: Product) -> ProductResponse:
     Convert a Product model to a ProductResponse schema
     """
     data = ProductResponse.model_validate(product)
-    data.base_profit = hitung_base_profit(product)
-    data.rabat_breakdown = calculate_rabat_breakdown(product)
+
     return data
 
 def get_product_or_404(product_id: int, db: Session) -> Product:

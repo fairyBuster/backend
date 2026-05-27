@@ -15,7 +15,7 @@ class ProductBase(BaseModel):
     type : str
     description : Optional[str] = None
     price : Decimal = Field(ge=0, description="Harga produk")
-    image : List[str] = []
+    image : Optional[str] = None
     status : ProductStatus = ProductStatus.active
     stock : int = Field(ge=0,default=0, description="Stok produk")
     purchase_limit: int = Field(ge=0,default=0, description="Batas pembelian per pengguna")
@@ -57,7 +57,7 @@ class ProductUpdate(BaseModel):
     type : Optional[str] = None
     description : Optional[str] = None
     price : Optional[Decimal] = None
-    image : Optional[List[str]] = None
+    image : Optional[str] = None
     status : Optional[ProductStatus] = None
     stock : Optional[int] = None
     purchase_limit: Optional[int] = None

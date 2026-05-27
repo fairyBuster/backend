@@ -29,7 +29,7 @@ class Product(Base):
     type = Column(String(255), index=False, nullable=False)
     description = Column(Text, index=False, nullable=False)
     price = Column(Numeric(15,2), index=False, nullable=False)
-    image = Column(JSON, default=0, index=False, nullable=False)
+    image = Column(String(255), default="", nullable=False)
     status = Column(saEnum(ProductStatus), default=ProductStatus.active, index=False, nullable=False)
     stock = Column(Integer, default=0, index=False, nullable=False)
     purchase_limit = Column(Integer, nullable=True)

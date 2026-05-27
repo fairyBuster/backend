@@ -1,5 +1,6 @@
 from app.database import SessionLocal
 from app.models.user import User
+from app.utils import referral
 from app.utils.auth import hash_password, generate_referral_code
 from sqlalchemy import or_
 
@@ -27,6 +28,7 @@ def seed():
             username=username,
             role="admin",
             phone=phone,
+            referral_by = None
         )
         db.add(user)
         db.commit()
